@@ -37,6 +37,16 @@ module fetch #(
     );
 
     always_comb begin
+        if ((load && !valid)) begin
+            mask = 4'b1111; 
+            we_re = 1'b0;
+            request = 1'b0;
+        end
+        else begin
+            mask = 4'b1111; 
+            we_re = 1'b0;
+            request = 1'b1;
+        end
 
         instruction = instruction_fetch ;
     end
