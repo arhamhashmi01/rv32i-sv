@@ -30,9 +30,14 @@ module decode #(
     logic operand_a;
     logic operand_b;
     logic [2:0]  imm_sel;
-    logic [DataWidth-1 : 0] op_a , op_b;
+    logic [DataWidth-1 : 0] op_a;
+    logic [DataWidth-1 : 0] op_b;
+    logic [DataWidth-1 : 0] i_immo;
+    logic [DataWidth-1 : 0] s_immo;
+    logic [DataWidth-1 : 0] sb_immo; 
+    logic [DataWidth-1 : 0] uj_immo; 
+    logic [DataWidth-1 : 0] u_immo;
     logic [DataWidth-1 : 0] imm_mux_out;
-    logic [DataWidth-1 : 0] i_immo , s_immo , sb_immo , uj_immo , u_immo;
 
     // CONTROL UNIT
     controlunit u_cu0 
