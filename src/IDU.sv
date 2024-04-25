@@ -15,6 +15,7 @@ module decode #(
     output logic load,
     output logic store,
     output logic jalr,
+    output logic Branch,
     output logic next_sel,
     output logic branch_result,
     output logic reg_write_en_out,
@@ -71,6 +72,8 @@ module decode #(
         .load_control(load_control_signal),
         .alu_control(alu_control)
     );
+
+    assign Branch = branch;
 
     // IMMEDIATE GENERATION
     immediate_generation #(
