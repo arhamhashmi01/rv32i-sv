@@ -12,7 +12,9 @@ module execute #(
     );
 
     // ALU INSTANCE
-    alu u_alu0 
+    alu #(
+        .DataWidth(DataWidth)
+    )u_alu0 
     (
         .operand_a(operand_a),
         .operand_b(operand_b),
@@ -20,7 +22,10 @@ module execute #(
         .result(alu_out)
     );
     // ADDER INSTANCE
-    adder u_adder0(
+    adder #(
+        .DataWidth(DataWidth)
+    )u_adder0
+    (
         .a(pc_address),
         .adder_out(next_sel_address)
     );
