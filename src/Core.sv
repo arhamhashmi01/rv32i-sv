@@ -65,6 +65,7 @@ module core #(
         .load(load_decode),
         .store(store_decode),
         .jalr(jalr_decode),
+        .Branch(branch),
         .next_sel(next_sel_decode),
         .reg_write_en_out(reg_write_decode),
         .mem_to_reg(mem_to_reg_decode),
