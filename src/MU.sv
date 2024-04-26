@@ -1,19 +1,21 @@
-module memory_stage (
-    input logic rst,
-    input logic load,
-    input logic store,
-    input logic valid,
-    input logic data_valid,
-    input logic [DataWidth-1 : 0] operand_b,
-    input logic [DataWidth-1 : 0] alu_out_address,
-    input logic [DataWidth-1 : 0] instruction,
-    input logic [DataWidth-1 : 0] wrap_load_in,
+module memory_stage #(
+    parameter DataWidth = 32;
+    )(
+        input logic rst,
+        input logic load,
+        input logic store,
+        input logic valid,
+        input logic data_valid,
+        input logic [DataWidth-1 : 0] operand_b,
+        input logic [DataWidth-1 : 0] alu_out_address,
+        input logic [DataWidth-1 : 0] instruction,
+        input logic [DataWidth-1 : 0] wrap_load_in,
 
-    output logic we_re,
-    output logic request,
-    output logic [3 : 0]  mask,
-    output logic [DataWidth-1 : 0] store_data_out,
-    output logic [DataWidth-1 : 0] wrap_load_out
+        output logic we_re,
+        output logic request,
+        output logic [3 : 0]  mask,
+        output logic [DataWidth-1 : 0] store_data_out,
+        output logic [DataWidth-1 : 0] wrap_load_out
     );
 
     // WRAPPER MEMORY
