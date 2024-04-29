@@ -11,7 +11,11 @@ module coretop_tb();
     logic [31:0]instruction;
     logic [31:0] res_out;
 
-    microprocessor u_microprocessor0
+    core_top #(
+        .DataWidth (DataWidth),
+        .RegAddress(RegAddress),
+        .Address   (Address)
+    )u_coretop
     (
         .clk(clk),
         .rst(rst),
