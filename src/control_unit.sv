@@ -5,18 +5,18 @@ module control_unit (
     input logic [2 : 0] fun3,
     input logic [6 : 0] opcode,
 
-    output wire Load,
-    output wire Store,
-    output wire Branch,
-    output wire mem_en,
-    output wire next_sel,
-    output wire jalr_out,
-    output wire reg_write,
-    output wire operand_b,
-    output wire operand_a,
-    output wire [2 : 0] imm_sel,
-    output wire [1 : 0] mem_to_reg,
-    output wire [3 : 0] alu_control
+    output logic Load,
+    output logic Store,
+    output logic Branch,
+    output logic mem_en,
+    output logic next_sel,
+    output logic jalr_out,
+    output logic reg_write,
+    output logic operand_b,
+    output logic operand_a,
+    output logic [2 : 0] imm_sel,
+    output logic [1 : 0] mem_to_reg,
+    output logic [3 : 0] alu_control
 );
     logic r_type;
     logic i_type; 
