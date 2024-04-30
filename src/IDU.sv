@@ -1,30 +1,30 @@
 module decode #(
     parameter DataWidth  = 32,
     parameter RegAddress = 5
-)(
-    input logic clk,
-    input logic rst,
-    input logic valid,
-    input logic reg_write_en_in,
-    input logic load_control_signal,
-    input logic [DataWidth-1 : 0] instruction,
-    input logic [DataWidth-1 : 0] pc_address,
-    input logic [DataWidth-1 : 0] rd_wb_data,
-    input logic [DataWidth-1 : 0] instruction_rd,
+    )(
+        input logic clk,
+        input logic rst,
+        input logic valid,
+        input logic reg_write_en_in,
+        input logic load_control_signal,
+        input logic [DataWidth-1 : 0] instruction,
+        input logic [DataWidth-1 : 0] pc_address,
+        input logic [DataWidth-1 : 0] rd_wb_data,
+        input logic [DataWidth-1 : 0] instruction_rd,
 
-    output logic load,
-    output logic store,
-    output logic jalr,
-    output logic Branch,
-    output logic next_sel,
-    output logic branch_result,
-    output logic reg_write_en_out,
-    output logic [3 : 0]  alu_control,
-    output logic [1 : 0]  mem_to_reg,
-    output logic [RegAddress-1 : 0] rs1,rs2,
-    output logic [DataWidth-1 : 0] opb_data,
-    output logic [DataWidth-1 : 0] opa_mux_out,
-    output logic [DataWidth-1 : 0] opb_mux_out
+        output logic load,
+        output logic store,
+        output logic jalr,
+        output logic Branch,
+        output logic next_sel,
+        output logic branch_result,
+        output logic reg_write_en_out,
+        output logic [3 : 0]  alu_control,
+        output logic [1 : 0]  mem_to_reg,
+        output logic [RegAddress-1 : 0] rs1,rs2,
+        output logic [DataWidth-1 : 0] opb_data,
+        output logic [DataWidth-1 : 0] opa_mux_out,
+        output logic [DataWidth-1 : 0] opb_mux_out
     );
 
     logic rd;
