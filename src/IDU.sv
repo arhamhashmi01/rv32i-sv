@@ -27,14 +27,14 @@ module decode #(
     output logic [DataWidth-1 : 0] opb_mux_out
     );
 
-    logic rd;
-    logic func3;
     logic func7;
-    logic opcode;
     logic branch;
     logic operand_a;
     logic operand_b;
+    logic [2:0] func3;
+    logic [6:0]opcode;
     logic [2:0]  imm_sel;
+    logic [RegAddress-1: 0] rd;
     logic [RegAddress-1: 0] rs_1;
     logic [RegAddress-1: 0] rs_2;
     logic [DataWidth-1 : 0] op_a;
@@ -49,7 +49,7 @@ module decode #(
     assign func7 = instruction[30];
     assign func3 = instruction[14:12];
     assign rs_1 = instruction[19:15];
-    assign rs_1 = instruction[24:20];
+    assign rs_2 = instruction[24:20];
     assign rd = instruction_rd[11:7];
     assign opcode = instruction[6:0];
 
@@ -123,7 +123,7 @@ module decode #(
             (operand_a) ? op_a : pc_address;
     
     //SELECTION OF OPERAND B OR IMMEDIATE     
-    assign opa_mux_out =
+    assign opab_mux_out =
             (operand_b) ? op_b : imm_mux_out;
 
     //BRANCH
