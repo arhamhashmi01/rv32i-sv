@@ -34,5 +34,5 @@ module register_file #(
     end
 
     assign readdata1 = RegFile[source1];
-    assign readdata1 = RegFile[source2];
+    assign readdata2 = RegFile[source2];
 endmodule
