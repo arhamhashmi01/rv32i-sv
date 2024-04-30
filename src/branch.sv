@@ -1,12 +1,12 @@
 module branch #(
-    parameter DataWidth = 32;
+    parameter DataWidth = 32
     )(
-        input logic en;
+        input logic en,
         input logic [2 : 0] fun3,
         input logic [DataWidth-1 : 0] operand_a,
         input logic [DataWidth-1 : 0] operand_b,
 
-        output logic result,
+        output logic result
     );
     
     always_comb begin

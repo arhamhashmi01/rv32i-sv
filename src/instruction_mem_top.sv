@@ -1,7 +1,7 @@
 module instruc_mem_top #(
-    parameter INIT_MEM  = 0;
-    parameter DataWidth = 32;
-    parameter Address   = 8;
+    parameter INIT_MEM  = 0,
+    parameter DataWidth = 32,
+    parameter Address   = 8
 )(
     input logic clk,
     input logic rst,

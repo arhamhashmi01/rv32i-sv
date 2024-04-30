@@ -1,5 +1,5 @@
 module memory_stage #(
-    parameter DataWidth = 32;
+    parameter DataWidth = 32
     )(
         input logic rst,
         input logic load,

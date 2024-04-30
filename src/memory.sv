@@ -1,7 +1,7 @@
 module memory#(
-    parameter INIT_MEM  = 0;
-    parameter DataWidth = 32;
-    parameter Address   = 8;
+    parameter INIT_MEM  = 0,
+    parameter DataWidth = 32,
+    parameter Address   = 8
 )(
     input logic clk,
     input logic we_re,
@@ -13,9 +13,9 @@ module memory#(
     output logic [DataWidth-1 : 0]data_out
 );
 
-    logic Depth = 256;
+    localparam Depth = 256;
 
-    logic [DataWidth-1 : 0] mem [0 : Depth-1];
+    logic [DataWidth-1 : 0] mem [Depth-1 : 0];
 
     initial begin
         if (INIT_MEM)

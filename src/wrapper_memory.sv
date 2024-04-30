@@ -1,5 +1,5 @@
 module wrappermem #(
-    parameter DataWidth = 32;
+    parameter DataWidth = 32
     )(
         input logic Load,
         input logic mem_en,

@@ -1,7 +1,7 @@
 module core_top #(
-    parameter DataWidth  = 32;
-    parameter RegAddress = 5;
-    parameter Address    = 8;
+    parameter DataWidth  = 32,
+    parameter RegAddress = 5,
+    parameter Address    = 8
     )(
         input logic clk,
         input logic rst,

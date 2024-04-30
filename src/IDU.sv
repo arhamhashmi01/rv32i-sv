@@ -1,6 +1,6 @@
 module decode #(
-    parameter DataWidth  = 32;
-    parameter RegAddress = 5;
+    parameter DataWidth  = 32,
+    parameter RegAddress = 5
 )(
     input logic clk,
     input logic rst,
@@ -27,6 +27,7 @@ module decode #(
     output logic [DataWidth-1 : 0] opb_mux_out
     );
 
+    logic rd;
     logic func3;
     logic func7;
     logic opcode;
@@ -45,8 +46,8 @@ module decode #(
     logic [DataWidth-1 : 0] u_immo;
     logic [DataWidth-1 : 0] imm_mux_out;
 
-    assign fun7 = instruction[30];
-    assign fun3 = instruction[14:12];
+    assign func7 = instruction[30];
+    assign func3 = instruction[14:12];
     assign rs_1 = instruction[19:15];
     assign rs_1 = instruction[24:20];
     assign rd = instruction_rd[11:7];

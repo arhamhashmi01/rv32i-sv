@@ -1,6 +1,6 @@
 module core #(
-    parameter DataWidth  = 32;
-    parameter RegAddress = 5;
+    parameter DataWidth  = 32,
+    parameter RegAddress = 5
 ) (
     input logic clk,
     input logic rst,
@@ -35,6 +35,7 @@ module core #(
     logic [DataWidth-1 : 0] rd_wb_data;
     logic [DataWidth-1 : 0] op_b_decode;
     logic [DataWidth-1 : 0] instruction_wb;
+    logic [RegAddress-1: 0] rs1_decode , rs2_decode;
     logic [DataWidth-1 : 0] pc_address_fetch;
     logic [DataWidth-1 : 0] instruction_fetch;
     logic [DataWidth-1 : 0] opa_mux_out_decode;
@@ -77,7 +78,7 @@ module core #(
         .clk(clk),
         .rst(rst),
         .valid(data_mem_valid),
-        .load_control_signal(load_execute),
+        .load_control_signal(load_decode),
         .reg_write_en_in(reg_write_wb),
         .instruction(instruction_fetch),
         .pc_address(pc_address_fetch),

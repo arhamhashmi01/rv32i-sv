@@ -1,5 +1,5 @@
 module fetch #(
-    parameter DataWidth = 32;
+    parameter DataWidth = 32
     )(
         input logic clk,
         input logic rst,
@@ -28,7 +28,7 @@ module fetch #(
         .rst(rst),
         .load(load),
         .jalr(jalr),
-        .branch(brnach),
+        .branch(branch),
         .dmem_valid(valid),
         .next_sel(next_sel),
         .next_address(next_address),

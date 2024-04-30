@@ -1,9 +1,9 @@
 module adder #(
-    parameter DataWidth = 32;
+    parameter DataWidth = 32
     )
     (
-        input logic [DataWidth-1 : 0] a;
-        output logic [DataWidth-1 : 0] adder_out;
+        input logic [DataWidth-1 : 0] a,
+        output logic [DataWidth-1 : 0] adder_out
     );
 
     always_comb begin

@@ -1,5 +1,5 @@
 module immediate_generation #(
-    parameter DataWidth = 32;
+    parameter DataWidth = 32
     )(
         input logic [DataWidth-1 : 0] instruction,
         

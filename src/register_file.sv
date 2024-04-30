@@ -1,6 +1,6 @@
 module register_file #(
-    parameter DataWidth  = 32;
-    parameter RegAddress = 5;
+    parameter DataWidth  = 32,
+    parameter RegAddress = 5
     )
     (
         input logic clk,
@@ -23,13 +23,13 @@ module register_file #(
     always_ff @( posedge clk or negedge rst ) begin
         if (!rst) begin
             for (i=0 ; i < number_of_registers ; i++)
-                RegFile <= 0;
+                RegFile[i] <= 0;
         end
         else if (write_enale) begin
-            if (writedata_add = 5'd0)
+            if(writedata_add == 5'd0)
                 RegFile[0] <= 32'h00000000;
             else
-                RegFile[writedata_add] <= write_data
+                RegFile[writedata_add] <= write_data;
         end
     end
 

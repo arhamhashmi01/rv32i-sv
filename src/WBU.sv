@@ -1,5 +1,5 @@
 module write_back #(
-    #parameter DataWidth = 32;
+    parameter DataWidth = 32
     )(
         input logic [1 : 0]  mem_to_reg,
         input logic [DataWidth-1 : 0] alu_out,
@@ -10,7 +10,7 @@ module write_back #(
     );
 
     assign rd_mux_out =
-                    (mem_to_reg = 2'b00) ? alu_out          :
-                    (mem_to_reg = 2'b01) ? data_mem_out     :
-                    (mem_to_reg = 2'b10) ? next_sel_address : 0;
+                    (mem_to_reg == 2'b00) ? alu_out          :
+                    (mem_to_reg == 2'b01) ? data_mem_out     :
+                    (mem_to_reg == 2'b10) ? next_sel_address : 0;
 endmodule

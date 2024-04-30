@@ -1,5 +1,5 @@
 module execute #(
-    #parameter DataWidth = 32;
+    parameter DataWidth = 32
     )
     (
         input logic [3 : 0]  alu_control,
