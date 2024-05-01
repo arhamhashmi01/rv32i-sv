@@ -32,8 +32,8 @@ module decode #(
     logic operand_a;
     logic operand_b;
     logic [2:0] func3;
-    logic [6:0]opcode;
-    logic [2:0]  imm_sel;
+    logic [6:0] opcode;
+    logic [2:0] imm_sel;
     logic [RegAddress-1: 0] rd;
     logic [RegAddress-1: 0] rs_1;
     logic [RegAddress-1: 0] rs_2;
@@ -120,11 +120,11 @@ module decode #(
 
     //SELECTION OF PROGRAM COUNTER OR OPERAND A
     assign opa_mux_out =
-            (operand_a) ? op_a : pc_address;
+            (operand_a) ? pc_address : op_a;
     
     //SELECTION OF OPERAND B OR IMMEDIATE     
     assign opab_mux_out =
-            (operand_b) ? op_b : imm_mux_out;
+            (operand_b) ? imm_mux_out : op_b;
 
     //BRANCH
     branch #(
