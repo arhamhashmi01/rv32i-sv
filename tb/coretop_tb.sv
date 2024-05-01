@@ -9,7 +9,6 @@ module coretop_tb();
     logic clk;
     logic rst;
     logic [31:0]instruction;
-    logic [31:0] res_out;
 
     core_top #(
         .DataWidth (DataWidth),
