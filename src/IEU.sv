@@ -21,6 +21,7 @@ module execute #(
         .alu_control(alu_control),
         .result(alu_out)
     );
+    
     // ADDER INSTANCE
     adder #(
         .DataWidth(DataWidth)
