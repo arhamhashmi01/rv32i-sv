@@ -14,7 +14,7 @@ module program_counter(
     output logic [31 : 0] pre_pc_address
 );
 
-    logic previous_address;
+    logic [31 : 0] previous_address;
 
     always_ff @( posedge clk or negedge rst ) begin
         if (!rst) begin
