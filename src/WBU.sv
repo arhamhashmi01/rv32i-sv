@@ -9,6 +9,7 @@ module write_back #(
         output logic [DataWidth-1 : 0] rd_mux_out
     );
 
+    //Selection for Destination Register RD
     assign rd_mux_out =
                     (mem_to_reg == 2'b00) ? alu_out          :
                     (mem_to_reg == 2'b01) ? data_mem_out     :
