@@ -7,9 +7,9 @@ module memory_stage #(
         input logic valid,
         input logic data_valid,
         input logic [DataWidth-1 : 0] operand_b,
-        input logic [DataWidth-1 : 0] alu_out_address,
         input logic [DataWidth-1 : 0] instruction,
         input logic [DataWidth-1 : 0] wrap_load_in,
+        input logic [DataWidth-1 : 0] alu_out_address,
 
         output logic we_re,
         output logic request,
