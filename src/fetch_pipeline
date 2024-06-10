@@ -1,0 +1,54 @@
+module fetch_pipe(
+    input logic clk,
+    input logic rst,
+    input logic [31:0] pre_pc_address,
+    input logic [31:0] instruction_fetch,
+    input logic next_select,
+    input logic branch_result,
+    input logic jalr,
+    input logic load,
+
+    output logic [31:0] pre_address,
+    output logic [31:0] instruction
+    );
+
+    reg flush_pipeline , flush_pipeline2;
+
+    always @ (posedge clk or negedge rst) begin
+        if (!rst) begin
+            pre_address <= 32'b0;
+            instruction <= 32'b0;
+        end
+        else begin
+            if (next_select | branch_result | jalr) begin
+                // If jal, jalr, or branch result is high, flush the pipeline for one cycle
+                pre_address <= 32'b0;
+                instruction <= 32'b0;
+                flush_pipeline  <= 1; // Set flag to flush for one cycle
+            end
+            else if (flush_pipeline) begin
+                // Stall the pipeline for one additional cycle after flushing
+                pre_address <= 32'b0;
+                instruction <= 32'b0;
+                flush_pipeline  <= 0; // Reset flag after one cycle stall
+                flush_pipeline2 <= 1; // Set flag to flush for one cycle
+            end
+            else if (flush_pipeline2) begin
+                // Stall the pipeline for one additional cycle after flushing
+                pre_address <= 32'b0;
+                instruction <= 32'b0;
+                flush_pipeline2 <= 0; // Reset flag after one cycle stall
+            end
+            else if (load) begin
+                //stall pipeline
+                pre_address <= pre_address;
+                instruction <= instruction;
+            end
+            else begin
+                // For other instructions, proceed normally
+                pre_address <= pre_pc_address;
+                instruction <= instruction_fetch;
+            end
+            end
+    end
+endmodule
